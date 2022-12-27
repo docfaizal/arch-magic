@@ -1,2 +1,1 @@
-# arch-magic
-Simple Arch install script
+# Easy and suckless install script for my system
