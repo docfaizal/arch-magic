@@ -1,6 +1,3 @@
-arch_install_script
-
-
 # == MY ARCH SETUP INSTALLER == #
 #part1
 printf '\033c'
@@ -45,9 +42,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome ttf-nerd-fonts-symbols-2048-em-mono \
      sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick  \
-     fzf man-db unclutter xclip maim \
+     fzf awesome-terminal-fonts man-db xclip maim \
      zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl  \
-     dosfstools ntfs-3g git fish pipewire pipewire-pulse \
+     dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse \
      arc-gtk-theme rsync qutebrowser dash \
      xcompmgr jq aria2 cowsay \
      networkmanager pamixer \
@@ -59,7 +56,7 @@ ln -s dash /bin/sh
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username
-useradd -m -G wheel -s /bin/zsh $username
+useradd -m -G wheel -s /bin/bash $username
 passwd $username
 echo "Installation Finish Reboot now"
 exit 
