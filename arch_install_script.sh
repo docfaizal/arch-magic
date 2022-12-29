@@ -46,7 +46,8 @@ fzf awesome-terminal-fonts ttf-nerd-fonts-symbols-common man-db xclip gnome-keyr
 zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl  \
 dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse \
 arc-gtk-theme rsync qutebrowser dash jq aria2 cowsay \
-networkmanager pamixer xdg-user-dirs libconfig
+networkmanager pamixer xdg-user-dirs libconfig libva-mesa-driver vdpauinfo radeontop \
+xf86-video-amdgpu xf86-video-ati libva-vdpau-driver libva-utils mesa-vdpau
 
 systemctl enable NetworkManager
 rm /bin/sh
