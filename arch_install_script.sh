@@ -39,16 +39,14 @@ sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
-     noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome ttf-nerd-fonts-symbols-2048-em-mono \
-     sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick  \
-     fzf awesome-terminal-fonts man-db xclip gnome-keyring maim \
-     zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl  \
-     dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse \
-     arc-gtk-theme rsync qutebrowser dash \
-     xcompmgr jq aria2 cowsay \
-     networkmanager pamixer \
-     xdg-user-dirs libconfig
+pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
+noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome ttf-nerd-fonts-symbols-2048-em-mono\
+sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick  \
+fzf awesome-terminal-fonts ttf-nerd-fonts-symbols-common man-db xclip gnome-keyring maim \
+zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl  \
+dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse \
+arc-gtk-theme rsync qutebrowser dash jq aria2 cowsay \
+networkmanager pamixer xdg-user-dirs libconfig
 
 systemctl enable NetworkManager
 rm /bin/sh
