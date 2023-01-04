@@ -42,8 +42,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
 noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome ttf-nerd-fonts-symbols-2048-em-mono \
 sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick \
-fzf awesome-terminal-fonts ttf-nerd-fonts-symbols-common man-db xclip gvfs gnome-keyring maim \
-zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl \
+fzf awesome-terminal-fonts ttf-roboto man-db xclip gvfs gnome-keyring maim \
+zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl appimagelauncher \
 dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse \
 arc-gtk-theme rsync qutebrowser dash jq aria2 cowsay pacman-contrib \
 networkmanager pamixer xdg-user-dirs libconfig libva-mesa-driver vdpauinfo radeontop \
