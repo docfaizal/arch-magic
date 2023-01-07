@@ -45,7 +45,7 @@ sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick \
 fzf awesome-terminal-fonts ttf-roboto man-db xclip gvfs gnome-keyring maim \
 zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl appimagelauncher \
 dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse \
-arc-gtk-theme rsync qutebrowser dash jq aria2 cowsay pacman-contrib \
+arc-gtk-theme rsync pavucontrol qutebrowser dash jq aria2 cowsay pacman-contrib \
 networkmanager pamixer xdg-user-dirs libconfig libva-mesa-driver vdpauinfo radeontop \
 xf86-video-amdgpu xf86-video-ati libva-vdpau-driver libva-utils mesa-vdpau ttf-nerd-fonts-symbols-2048-em-mono
 
