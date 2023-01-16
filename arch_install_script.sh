@@ -42,7 +42,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
 noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
 sxiv tcc mpv gst-libav zathura zathura-pdf-mupdf ffmpeg imagemagick libmtp android-file-transfer\
-fzf awesome-terminal-fonts ttf-roboto man-db xclip gvfs gnome-keyring maim \
+fzf awesome-terminal-fonts ttf-roboto man-db clipmenu xclip gvfs gnome-keyring maim \
 zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl appimagelauncher \
 dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse gvfs-mtp gvfs-gphoto2 \
 arc-gtk-theme rsync pavucontrol qutebrowser dash jq aria2 cowsay pacman-contrib \
