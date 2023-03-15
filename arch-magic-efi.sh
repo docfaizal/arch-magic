@@ -28,9 +28,10 @@ echo $hostname > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
+pacman --noconfirm -S networkmanager grub duf linux-lts-headers efibootmgr os-prober
+pacman -S xorg
 mkinitcpio -P
 passwd
-pacman --noconfirm -S networkmanager grub efibootmgr os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg

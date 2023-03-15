@@ -28,20 +28,22 @@ echo $hostname > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
+pacman --noconfirm -S networkmanager grub linux-lts-headers duf efibootmgr os-prober
 mkinitcpio -P
 passwd
-pacman --noconfirm -S networkmanager grub efibootmgr os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
+# xorg-pkg-select
+pacman -S xorg
 
-pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
-noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
+pacman -S --noconfirm --needed noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono \
+pulseaudio pulseaudio-alsa alsa-utils ttf-joypixels ttf-font-awesome \
 sxiv tcc mpv gst-libav zathura zathura-pdf-mupdf ffmpeg imagemagick libmtp android-file-transfer\
 fzf awesome-terminal-fonts ttf-roboto man-db clipmenu xclip gvfs gnome-keyring maim \
 zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl appimagelauncher \
-dosfstools mailcap ntfs-3g git fish pipewire pipewire-pulse gvfs-mtp gvfs-gphoto2 \
+dosfstools mailcap ntfs-3g git fish gvfs-mtp gvfs-gphoto2 \
 arc-gtk-theme rsync pavucontrol qutebrowser dash jq aria2 cowsay pacman-contrib \
 networkmanager pamixer xdg-user-dirs libconfig libva-mesa-driver vdpauinfo radeontop \
 xf86-video-amdgpu xf86-video-ati libva-vdpau-driver libva-utils mesa-vdpau ttf-nerd-fonts-symbols-2048-em-mono
