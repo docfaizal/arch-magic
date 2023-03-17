@@ -28,7 +28,7 @@ echo $hostname > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
-pacman --noconfirm -S networkmanager grub linux-lts-headers duf efibootmgr os-prober
+pacman --noconfirm -S networkmanager grub linux-lts-headers duf dosfstools mtools dialog efibootmgr os-prober
 mkinitcpio -P
 passwd
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH
@@ -37,17 +37,17 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
 # xorg-pkg-select
 pacman -S xorg
-
+# Packages
 pacman -S --noconfirm --needed noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono \
 pulseaudio pulseaudio-alsa alsa-utils ttf-joypixels ttf-font-awesome \
 sxiv tcc mpv gst-libav zathura zathura-pdf-mupdf ffmpeg imagemagick libmtp android-file-transfer\
 fzf awesome-terminal-fonts ttf-roboto man-db clipmenu xclip gvfs gnome-keyring maim \
-zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl appimagelauncher \
-dosfstools mailcap ntfs-3g git fish gvfs-mtp gvfs-gphoto2 \
+zip unzip unrar p7zip xdotool papirus-icon-theme appimagelauncher \
+mailcap ntfs-3g git fish gvfs-mtp gvfs-gphoto2 brightnessctl ocs-url \
 arc-gtk-theme rsync pavucontrol qutebrowser dash jq aria2 cowsay pacman-contrib \
 networkmanager pamixer xdg-user-dirs libconfig libva-mesa-driver vdpauinfo radeontop \
 xf86-video-amdgpu xf86-video-ati libva-vdpau-driver libva-utils mesa-vdpau ttf-nerd-fonts-symbols-2048-em-mono
-
+# Adding user to the wheel group
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username

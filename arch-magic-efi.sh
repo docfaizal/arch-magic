@@ -6,7 +6,7 @@ sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 3/" /etc/pacman.conf
 pacman --noconfirm -Sy archlinux-keyring
 loadkeys us
 timedatectl set-ntp true
-pacstrap /mnt base base-devel linux-lts linux-firmware sed
+pacstrap /mnt base base-devel linux-lts linux-firmware sed vim btrfs-progs
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
@@ -28,8 +28,10 @@ echo $hostname > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
-pacman --noconfirm -S networkmanager grub duf linux-lts-headers efibootmgr os-prober
+pacman --noconfirm -S networkmanager grub linux-lts-headers duf dosfstools mtools efibootmgr dialog ocs-url os-prober
 pacman -S xorg
+# Add btrfs in module section
+vim /etc/mkinitcpio.conf 
 mkinitcpio -P
 passwd
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH
