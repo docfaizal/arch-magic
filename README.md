@@ -7,5 +7,5 @@
 - Grab a cup of coffee
 
 ## Notes
-- In arch-magic-efi.sh edit the hostanme and username vars
+- In arch-magic-efi.sh edit the hostname and username vars
 - Full version have all my recommended packages
