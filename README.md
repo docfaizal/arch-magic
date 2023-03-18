@@ -6,5 +6,5 @@
 - ./arch-(firmware).sh
 - Grab a cup of coffee
 
-# Notes
+## Notes
 - Full version have all my recommended packages
