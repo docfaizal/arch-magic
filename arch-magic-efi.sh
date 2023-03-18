@@ -22,12 +22,12 @@ echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=us" > /etc/vconsole.conf
-echo "Hostname: "
-read hostname
-echo $hostname > /etc/hostname
+# echo "Hostname: "
+# read hostname
+echo "yourbetterone" > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
-echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
+echo "127.0.1.1       yourbetterone.localdomain yourbetterone" >> /etc/hosts
 # Bootloader and some important utilities
 pacman --noconfirm -S networkmanager grub linux-lts-headers dosfstools \
 efibootmgr fontconfig udisks2 dialog ocs-url parcellite mtools duf
@@ -44,10 +44,10 @@ sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-echo "Enter Username: "
-read username
-useradd -m -g users -G wheel,storage,audio,video,network -s /bin/bash $username 
-passwd $username
+# echo "Enter Username: "
+# read username
+useradd -m -g users -G wheel,storage,audio,video,network -s /bin/bash docfaizal
+passwd docfaizal
 # Installing AUR helper
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin/
