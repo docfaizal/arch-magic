@@ -32,6 +32,8 @@ echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
 pacman --noconfirm -S networkmanager grub linux-lts-headers duf dosfstools mtools efibootmgr fontconfig udisks2 dialog ocs-url parcellite 
 # Xorg package selection
 pacman -S xorg
+# Sound packages
+pacman -S pulseaudio pulseaudio-alsa alsa-utils alsa-plugins
 # Add btrfs in module section
 vim /etc/mkinitcpio.conf 
 mkinitcpio -P
