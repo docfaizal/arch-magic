@@ -6,7 +6,7 @@ sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 3/" /etc/pacman.conf
 pacman --noconfirm -Sy archlinux-keyring
 loadkeys us
 timedatectl set-ntp true
-pacstrap /mnt base base-devel linux-lts linux-firmware sed vim btrfs-progs
+pacstrap /mnt base base-devel linux-lts linux-firmware sed vim btrfs-progs git
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
@@ -28,7 +28,9 @@ echo $hostname > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
-pacman --noconfirm -S networkmanager grub linux-lts-headers duf dosfstools mtools efibootmgr dialog ocs-url os-prober
+# Bootloader and some important utilities
+pacman --noconfirm -S networkmanager grub linux-lts-headers duf dosfstools mtools efibootmgr fontconfig udisks2 dialog ocs-url parcellite 
+# Xorg package selection
 pacman -S xorg
 # Add btrfs in module section
 vim /etc/mkinitcpio.conf 
@@ -41,7 +43,11 @@ systemctl enable NetworkManager
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username
-useradd -m -g users -G wheel,storage,power,audio,video,network -s /bin/bash $username 
+useradd -m -g users -G wheel,storage,audio,video,network -s /bin/bash $username 
 passwd $username
+# Installing AUR helper
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin/
+makepkg -si
 echo "Installation Finish Reboot now"
 exit 
