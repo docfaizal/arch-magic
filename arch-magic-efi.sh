@@ -29,7 +29,8 @@ echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
 # Bootloader and some important utilities
-pacman --noconfirm -S networkmanager grub linux-lts-headers duf dosfstools mtools efibootmgr fontconfig udisks2 dialog ocs-url parcellite 
+pacman --noconfirm -S networkmanager grub linux-lts-headers dosfstools \
+efibootmgr fontconfig udisks2 dialog ocs-url parcellite mtools duf
 # Xorg package selection
 pacman -S xorg
 # Sound packages
@@ -50,6 +51,6 @@ passwd $username
 # Installing AUR helper
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin/
-makepkg -si
+sudo -u docfaizal makepkg -si
 echo "Installation Finish Reboot now"
 exit 
