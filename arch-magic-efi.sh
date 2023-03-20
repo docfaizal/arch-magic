@@ -35,6 +35,8 @@ efibootmgr fontconfig udisks2 dialog ocs-url parcellite mtools duf
 pacman -S xorg
 # Sound packages
 pacman -S pulseaudio pulseaudio-alsa alsa-utils alsa-plugins
+# fonts
+pacman -S --noconfirm ttf-roboto ttf-jetbrains-mono-nerd ttf-font-awesome noto-fonts noto-fonts-emoji noto-fonts-cjk
 # Add btrfs in module section
 vim /etc/mkinitcpio.conf 
 mkinitcpio -P
