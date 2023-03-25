@@ -6,7 +6,7 @@ sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 3/" /etc/pacman.conf
 pacman --noconfirm -Sy archlinux-keyring
 loadkeys us
 timedatectl set-ntp true
-pacstrap /mnt base base-devel linux-lts linux-firmware sed vim btrfs-progs git
+pacstrap /mnt base base-devel linux-lts linux-firmware sed vim btrfs-progs git acpi
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
@@ -30,7 +30,7 @@ echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       yourbetterone.localdomain yourbetterone" >> /etc/hosts
 # Bootloader and some important utilities
 pacman --noconfirm -S networkmanager grub linux-lts-headers dosfstools \
-efibootmgr fontconfig udisks2 dialog ocs-url parcellite mtools duf
+efibootmgr fontconfig udisks2 dialog ocs-url parcellite mtools duf tealdeer
 # Xorg package selection
 pacman -S xorg
 # Sound packages
