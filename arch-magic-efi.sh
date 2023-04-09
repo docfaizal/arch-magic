@@ -30,7 +30,7 @@ echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       yourbetterone.localdomain yourbetterone" >> /etc/hosts
 # Bootloader and some important utilities
 pacman --noconfirm -S networkmanager grub linux-lts-headers dosfstools \
-efibootmgr fontconfig udisks2 dialog ocs-url parcellite mtools duf tealdeer
+efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer
 # Xorg package selection
 pacman -S xorg
 # Sound packages
@@ -41,6 +41,7 @@ pacman -S --noconfirm ttf-roboto ttf-jetbrains-mono-nerd ttf-font-awesome noto-f
 vim /etc/mkinitcpio.conf 
 mkinitcpio -P
 passwd
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=archlinux
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
