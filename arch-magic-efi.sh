@@ -41,7 +41,6 @@ pacman -S --noconfirm ttf-roboto ttf-jetbrains-mono-nerd ttf-font-awesome noto-f
 vim /etc/mkinitcpio.conf 
 mkinitcpio -P
 passwd
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
