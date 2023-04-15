@@ -29,8 +29,8 @@ echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       yourbetterone.localdomain yourbetterone" >> /etc/hosts
 # Bootloader and some important utilities
-pacman -S networkmanager grub linux-lts-headers dosfstools xdg-utils \
-efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer xdg-user-dirs xdg-desktop-portal
+pacman -S networkmanager grub linux-lts-headers dosfstools xdg-utils brightnessctl \
+efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-user-dirs xdg-desktop-portal
 # Xorg package selection
 pacman -S xorg
 # Sound packages
