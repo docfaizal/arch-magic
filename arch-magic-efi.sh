@@ -45,7 +45,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=archl
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 # echo "Enter Username: "
 # read username
 useradd -m -g users -G wheel,storage,audio,video,network -s /bin/bash docfaizal
