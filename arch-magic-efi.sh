@@ -29,12 +29,12 @@ echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       yourbetterone.localdomain yourbetterone" >> /etc/hosts
 # Bootloader and some important utilities
-pacman -S networkmanager grub linux-lts-headers dosfstools xdg-utils brightnessctl ntfs-3g \
+pacman -S networkmanager grub linux-lts-headers dosfstools xdg-utils brightnessctl ntfs-3g fzf fish \
 efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-user-dirs xdg-desktop-portal
 # Xorg package selection
 pacman -S xorg
 # Sound packages
-pacman -S pulseaudio pulseaudio-alsa alsa-utils alsa-plugins
+pacman -S pulseaudio pulseaudio-alsa pamixer alsa-utils alsa-plugins
 # fonts
 pacman -S --noconfirm ttf-roboto ttf-jetbrains-mono-nerd ttf-font-awesome noto-fonts noto-fonts-emoji noto-fonts-cjk
 # Add btrfs in module section
@@ -51,7 +51,7 @@ echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 useradd -m -g users -G wheel,storage,audio,video,network -s /bin/bash docfaizal
 passwd docfaizal
 # Installing AUR helper
-git clone https://aur.archlinux.org/yay-bin.git
+sudo -u docfaizal git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin/
 sudo -u docfaizal makepkg -si
 echo "Installation Finish Reboot now and run xdg-user-dirs-update"
