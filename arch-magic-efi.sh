@@ -30,7 +30,10 @@ echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       yourbetterone.localdomain yourbetterone" >> /etc/hosts
 # Bootloader and some important utilities
 pacman -S networkmanager grub linux-lts-headers dosfstools xdg-utils brightnessctl ntfs-3g fzf fish \
-efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-user-dirs xdg-desktop-portal
+efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-user-dirs \ 
+xdg-desktop-portal-gtk aria2 cowsay pacman-contrib libconfig libva-mesa-driver vdpauinfo \
+xf86-video-amdgpu xf86-video-ati libva-vdpau-driver libva-utils mesa-vdpau gst-libav \
+zip unzip unrar p7zip maim rsync imagemagick libmtp android-file-transfer
 # Xorg package selection
 pacman -S xorg
 # Sound packages
