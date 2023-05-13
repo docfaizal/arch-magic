@@ -34,7 +34,7 @@ efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-use
 xdg-desktop-portal-gtk aria2 cowsay pacman-contrib libconfig libva-mesa-driver vdpauinfo \
 xf86-video-amdgpu xf86-video-ati libva-vdpau-driver libva-utils mesa-vdpau gst-libav \
 zip dash gvfs-mtp unzip unrar p7zip maim rsync imagemagick android-file-transfer \
-reflector mpv fish 
+reflector mpv dunst jq fish 
 # Xorg package selection
 pacman -S xorg
 # Sound packages
