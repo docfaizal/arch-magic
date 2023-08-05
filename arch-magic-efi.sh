@@ -33,7 +33,7 @@ pacman -S --needed networkmanager grub linux-lts-headers dosfstools xdg-utils br
 efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-user-dirs libmtp xdg-desktop-portal-gtk aria2 cowsay pacman-contrib libconfig libva-mesa-driver vdpauinfo \
 xf86-video-amdgpu xf86-video-ati libva-vdpau-driver lxsession lxappearance-gtk3 qt5ct volumeicon ncdu exa gtk-engine-murrine libva-utils mesa-vdpau gst-libav \
 zip dash gvfs-mtp unzip unrar p7zip maim rsync imagemagick android-file-transfer \
-reflector mpv dunst jq fish ntfs-3g fzf android-tools
+reflector mpv dunst jq fish ntfs-3g fzf android-tools file-roller lzop
 # Xorg package selection
 pacman -S xorg
 # Browser 
