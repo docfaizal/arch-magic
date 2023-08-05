@@ -30,9 +30,8 @@ echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       yourbetterone.localdomain yourbetterone" >> /etc/hosts
 # Bootloader and some important utilities
 pacman -S --needed networkmanager grub linux-lts-headers dosfstools xdg-utils brightnessctl \
-efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-user-dirs libmtp \ 
-xdg-desktop-portal-gtk aria2 cowsay pacman-contrib libconfig libva-mesa-driver vdpauinfo \
-xf86-video-amdgpu xf86-video-ati libva-vdpau-driver libva-utils mesa-vdpau gst-libav \
+efibootmgr fontconfig udisks2 dialog parcellite mtools duf tealdeer gvfs xdg-user-dirs libmtp xdg-desktop-portal-gtk aria2 cowsay pacman-contrib libconfig libva-mesa-driver vdpauinfo \
+xf86-video-amdgpu xf86-video-ati libva-vdpau-driver lxsession lxappearance-gtk3 qt5ct volumeicon ncdu exa gtk-engine-murrine libva-utils mesa-vdpau gst-libav \
 zip dash gvfs-mtp unzip unrar p7zip maim rsync imagemagick android-file-transfer \
 reflector mpv dunst jq fish ntfs-3g fzf android-tools
 # Xorg package selection
@@ -57,8 +56,20 @@ echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 useradd -m -g users -G wheel,storage,audio,video,network,power -s /bin/bash docfaizal
 passwd docfaizal
 # Installing AUR helper
-sudo -u docfaizal git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin/
-sudo -u docfaizal makepkg -si
+# sudo -u docfaizal git clone https://aur.archlinux.org/yay-bin.git
+# cd yay-bin/
+# sudo -u docfaizal makepkg -si
+
+# adding chaotic AUR
+pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key 3056513887B78AEB
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+echo "[chaotic-aur]" >> /etc/pacman.conf
+echo "Include = /etc/pacman.d/chaotic-mirrorlist"  >> /etc/pacman.conf
+sleep 2s
+# chaotic aur packages
+pacman -Sy
+pacman -S --needed brave-bin github-desktop g4music cava
+# Final step
 echo "Installation Finish Reboot now and run xdg-user-dirs-update"
 exit 
